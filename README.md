@@ -1,2 +1,2 @@
 # SlickCV
-A CV Application made in React 
+This project is under construction! 🏗️

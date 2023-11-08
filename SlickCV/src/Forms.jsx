@@ -4,7 +4,7 @@ import "./styles/form.css"
 import { useState, useEffect } from "react"
 import { v4 } from 'uuid';
 
-let about = {title: "About You", fields: ["Name", "Email", "Phone", "Address"], needsDescription: false}
+let about = {title: "About You", fields: ["Name", "Address", "Phone", "Email", "Website", "LinkedIn"], needsDescription: false}
 let education = {title: "College", fields: ["School", "Degree", "Start", "End"], needsDescription: false}
 let experience = {title: "SWE", fields: ["Company", "Position", "Start", "End"] , needsDescription: true}
 
@@ -14,9 +14,6 @@ export function Forms() {
 
   useEffect(() => {
     // This effect will run whenever newSection state changes
-    // You can add additional logic here if needed
-
-    // Update the component whenever newSection changes
     setNewSection((prevNewSection) => {
       if (prevNewSection.title === 'Education') {
         return { title: '', fields: education.fields, key: v4() };
@@ -67,6 +64,18 @@ export function Forms() {
     setNewSection({ ...newSection, title: e.target.value });
   }
 
+  function onSectionDelete(type, index) {
+    if (type === "Education") {
+      let curSections = [...sections]
+      curSections[1].splice(index, 1)
+      setSections(curSections)
+    } else if (type === "Experience") {
+      let curSections = [...sections]
+      curSections[2].splice(index, 1)
+      setSections(curSections)
+    }
+  }
+
   return (
     <>
       {/* About Section */}
@@ -76,27 +85,29 @@ export function Forms() {
       {/* Education Section */}
       {<Collapse title="Education">
         {sections[1].map((section) => (
-          <Section key={section.key} title={section.title} fields={section.fields} needsDescription={section.needsDescription}/>
+          <Section key={section.key} title={section.title} fields={section.fields} needsDescription={section.needsDescription} onDelete={() => {onSectionDelete("Education", sections[1].indexOf(section))}}/>
         ))}  
       </Collapse>}
       {/* Experience Section */}
       {<Collapse title="Experience">
         {sections[2].map((section) => (
-          <Section key={section.key} title={section.title} fields={section.fields} needsDescription={section.needsDescription}/>
+          <Section key={section.key} title={section.title} fields={section.fields} needsDescription={section.needsDescription} onDelete={() => {onSectionDelete("Experience", sections[2].indexOf(section))}}/>
         ))}
       </Collapse>}
       <Collapse title="Add Section"> 
-        <div>
+        <div className="add-section">
           <div className="input-container">
           <label className="text">Section Title: </label>
           <input type="text" placeholder="Section Title" value={newSection.title} onChange={changeSectionTitle}  className="input"/>
           </div>
+          <div className="input-container select-container">
           <label className="text">Section Type: </label>
-          <select onChange={changeSectionType}>
+          <select className onChange={changeSectionType}>
             <option value="" disabled hidden selected>Select Section Type</option>
             <option value="Education">Education</option>
             <option value="Experience">Experience</option>
           </select>
+          </div>
           <div className="new-section-fields">
             {newSection.fields.map((field, index) => (
               <div key={index} className="input-container">
@@ -111,10 +122,10 @@ export function Forms() {
               </div>
             ))}
             {newSection.needsDescription ? (
-              "A description field will be added to this section") : null}
+              <span>A description field will be added to this section</span>) : null}
             </div>
-          <input type="button" className="add-btn" value="Add Field" onClick={onClick} />
-          <input type="button" className="add-btn" value="Add Section" onClick={onSubmit} />
+          <input type="button" className="btn" value="Add Field" onClick={onClick} />
+          <input type="button" className="btn" value="Add Section" onClick={onSubmit} />
         </div>
       </Collapse>
     </>)

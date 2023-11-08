@@ -1,0 +1,38 @@
+.collapse-children-container {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-in-out;
+  /* Children Styles */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.hidden {
+  max-height: 100px;
+}
+
+#expand-btn {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  padding: 0.5rem;
+  margin: 0.5rem;
+  transition: all 0.4s ease-in-out;
+}
+
+#expand-btn:hover {
+  cursor: pointer;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.expand {
+  transform: rotate(0deg);
+}
+
+.collapse {
+  transform: rotate(180deg);
+}

@@ -12,3 +12,7 @@ body,
   display: grid;
   grid-template-columns: 1fr 2fr;
 }
+
+body {
+  background-color: #f5f5f5;
+}

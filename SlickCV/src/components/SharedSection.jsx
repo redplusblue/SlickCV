@@ -7,7 +7,7 @@ import { Preview } from "./Preview";
 
 let about = {title: "About You", fields: {"Name":"", "Location":"", "Phone":"", "Email":"", "Website":"", "LinkedIn":""}, needsDescription: false, key: v4()}
 let education = {title: "College", fields: {"School":"", "Location":"", "Start":"", "End":"", "Degree":"", "GPA":""}, needsDescription: false, key: v4()}
-let experience = {title: "SWE", fields: ["Company", "Position", "Start", "End"] , needsDescription: true, key: v4()}
+let experience = {title: "SWE", fields: {"Company":"", "Position":"", "Start":"", "End":"", "Location":""} , needsDescription: true, key: v4()}
 
 export function MainComponent() {
     const [sections, setSections] = useState([[about], [education], [experience]]);

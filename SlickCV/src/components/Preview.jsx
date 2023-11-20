@@ -13,7 +13,6 @@ export function Preview({sections}) {
   }, [sections]);
 
   const about = sections[0][0];
-  console.log(sections[0])
   return (
     <>
     {/* About Section*/ }
@@ -64,7 +63,7 @@ export function Preview({sections}) {
     <hr />
     {sections[1].map((element) => (
       <>
-            <div className="preview-detail-content">
+            <div className="preview-detail-content" >
               <div className="preview-detail-content-row">
                 <div className="preview-detail-content-item">
                   <span className="inst-name">{element.fields['School']}</span>
@@ -83,8 +82,37 @@ export function Preview({sections}) {
                 </div>
               </div>
             </div></>))}
+      <br />
+    {/* Experience Section*/ }
+    {sections[2].length >= 0 && <div className="preview-detail-heading">Experience</div>}
+    <hr />
+    {sections[2].map((element) => (
+      <>
+            <div className="preview-detail-content">
+              <div className="preview-detail-content-row">
+                <div className="preview-detail-content-item">
+                  <span className="inst-name">{element.fields['Position']}</span>
+                </div>
+              </div>
+              <div className="preview-detail-content-row">
+                <div className="preview-detail-content-item">
+                  <span className="">{element.fields['Company']}</span>
+                  <span className="inst-location">{element.fields['Company'] ? `, ${element.fields['Location']}` : null}</span>
+                </div>
+                <div className="preview-detail-content-item">
+                  <span className="inst-duration">{element.fields['Start']} - {element.fields['End']}</span>
+                </div>
+              </div>
+              <div className="preview-detail-content-row">
+                <div className="preview-detail-content-item">
+                  <span className="inst-degree">{element.fields['Description']}</span>
+                </div>
+              </div>
+            </div></>))}
     </>
   )
+
+  
 }
 Preview.propTypes = {
   sections: PropTypes.arrayOf(

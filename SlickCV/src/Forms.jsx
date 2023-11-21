@@ -23,7 +23,6 @@ export default function Forms({sections, setSections}) {
     // Education (1) has new Type 0, Experience (2) has new Type 1, hence the (type - 1)
     let curSections = [...sections]
     curSections[type].push(newSection[type - 1])
-
     setSections(curSections)
     console.log(sections)
   }
@@ -77,7 +76,7 @@ export default function Forms({sections, setSections}) {
       {/* Experience Section */}
       {<Collapse title="Experience">
         {sections[2].map((section) => (
-          <Section key={section.key} title={section.fields["Title"]} fields={section.fields} onChange={onChange} needsDescription={section.needsDescription} onDelete={() => {onSectionDelete("Experience", sections[2].indexOf(section))}} type={2} 
+          <Section key={section.key} title={section.fields["Title"]} fields={section.fields} onChange={onChange} onDelete={() => {onSectionDelete("Experience", sections[2].indexOf(section))}} type={2} 
           sectionKey={section.key}/>
         ))}
       {/* Add More Experience */}

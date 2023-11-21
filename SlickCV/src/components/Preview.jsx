@@ -1,16 +1,31 @@
-import { useEffect } from "react";
 import PropTypes from 'prop-types';
 import '../styles/preview.css'
-
 // Returns preview - component 
+
+function DescParser({string}) {
+  return (
+    <>
+    {string.split(";;").map((element) => (
+      <li key={element}>
+      {element}
+      </li>
+    ))}
+    </>
+  
+  )
+}
+DescParser.propTypes = {
+  string: PropTypes.string.isRequired,
+};
+
 
 // Initial elements, and state variables
 export function Preview({sections}) {
-  
-  useEffect(() => {
-    // This code will run every time sharedState changes
-    // Add any additional logic you need here
-  }, [sections]);
+  // TODO: Check if this is needed
+  // useEffect(() => {
+  //   // This code will run every time sharedState changes
+  //   // Add any additional logic you need here
+  // }, [sections]);
 
   const about = sections[0][0];
   return (
@@ -21,56 +36,55 @@ export function Preview({sections}) {
           <div className="preview-about-you-address">{about.fields['Location']}</div>
           <div className="preview-about-more">
             <div className="about-more-wrapper">
-              <img
+              {about.fields['Email'] && <img
                 width="18"
                 height="18"
                 src="https://img.icons8.com/ios-glyphs/30/new-post.png"
                 alt="new-post"
-              />
+              />}
               <div className="preview-about-you-email">{about.fields['Email']}</div>
             </div>
             <div className="about-more-wrapper">
-              <img
+              {about.fields['Phone'] && <img
                 width="18"
                 height="18"
                 src="https://img.icons8.com/material-rounded/24/phone--v1.png"
                 alt="phone--v1"
-              />
+              />}
               <div className="preview-about-you-phone">{about.fields['Phone']}</div>
             </div>
             <div className="about-more-wrapper">
-              <img
+              {about.fields['Website'] && <img
                 width="18"
                 height="18"
                 src="https://img.icons8.com/ios-filled/50/link--v1.png"
                 alt="domain"
-              />
+              />}
               <div className="preview-about-you-website">{about.fields['Website']}</div>
             </div>
             <div className="about-more-wrapper">
-              <img
+              {about.fields['LinkedIn'] && <img
                 width="20"
                 height="20"
                 src="https://img.icons8.com/ios-glyphs/30/linkedin.png"
                 alt="linkedin"
-              />
+              />}
               <div className="preview-about-you-linkedin">{about.fields['LinkedIn']}</div>
             </div>
           </div>
         </div>
     {/* Education Section*/ }
-    {sections[1].length >= 0 && <div className="preview-detail-heading">Education</div>}
-    <hr />
+    {sections[1].length >= 0 && <><div className="preview-detail-heading">Education</div><hr /></>}
     {sections[1].map((element) => (
       <>
             <div className="preview-detail-content" >
               <div className="preview-detail-content-row">
                 <div className="preview-detail-content-item">
                   <span className="inst-name">{element.fields['School']}</span>
-                  <span className="inst-location">{element.fields['Location'] ? `, ${element.fields['Location']}` : null}</span>
+                  <span className="location">{element.fields['Location'] ? `, ${element.fields['Location']}` : null}</span>
                 </div>
                 <div className="preview-detail-content-item">
-                  <span className="inst-duration">{element.fields['Start']} - {element.fields['End']}</span>
+                  <span className="duration">{element.fields['Start']} - {element.fields['End']}</span>
                 </div>
               </div>
               <div className="preview-detail-content-row">
@@ -84,34 +98,36 @@ export function Preview({sections}) {
             </div></>))}
       <br />
     {/* Experience Section*/ }
-    {sections[2].length >= 0 && <div className="preview-detail-heading">Experience</div>}
-    <hr />
+    {sections[2].length >= 0 && <><div className="preview-detail-heading">Experience</div><hr /></>}
     {sections[2].map((element) => (
       <>
             <div className="preview-detail-content">
               <div className="preview-detail-content-row">
                 <div className="preview-detail-content-item">
-                  <span className="inst-name">{element.fields['Position']}</span>
+                  <span className="position">{element.fields['Position']}</span>
                 </div>
               </div>
               <div className="preview-detail-content-row">
                 <div className="preview-detail-content-item">
-                  <span className="">{element.fields['Company']}</span>
-                  <span className="inst-location">{element.fields['Company'] ? `, ${element.fields['Location']}` : null}</span>
+                  <span className="company">{element.fields['Company']}</span>
+                  <span className="location">{element.fields['Company'] ? `, ${element.fields['Location']}` : null}</span>
                 </div>
                 <div className="preview-detail-content-item">
-                  <span className="inst-duration">{element.fields['Start']} - {element.fields['End']}</span>
+                  <span className="duration">{element.fields['Start']} - {element.fields['End']}</span>
                 </div>
               </div>
               <div className="preview-detail-content-row">
                 <div className="preview-detail-content-item">
-                  <span className="inst-degree">{element.fields['Description']}</span>
+                  <span className="description">
+                    <ul>
+                      <DescParser string={element.fields['Description']} />
+                    </ul>
+                  </span>
                 </div>
               </div>
             </div></>))}
     </>
   )
-
   
 }
 Preview.propTypes = {

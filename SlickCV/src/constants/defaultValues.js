@@ -19,6 +19,7 @@ export const experience = {
     Start: "1977",
     End: "Present",
     Location: "Hawaii",
+    Description: "I do stuff;; Also, I do other stuff",
   },
   needsDescription: true,
   key: "",

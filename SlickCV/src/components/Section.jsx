@@ -12,13 +12,13 @@ function Section({ title, fields, onDelete, onChange, sectionKey, type}) {
           return (
             <div key={child} className='input-container'>
               <label className='text'>Description: </label>
-              <textarea className='input' onChange={(e) => {onChange(type, e, "Description", sectionKey)}}></textarea>
+              <textarea className='input' onChange={(e) => {onChange(type, e, "Description", sectionKey)}} value={fields[child]}></textarea>
             </div>
           )}
         return (
         <div key={child} className='input-container'>
           <label key={child} className='text'>{child}: </label>
-          <input key={child} type='text' className="input" onChange={(e) => {onChange(type, e, child, sectionKey)}}/>
+          <input key={child} type='text' className="input" onChange={(e) => {onChange(type, e, child, sectionKey)}} value={fields[child]}/>
         </div>
       )})}
       {onDelete ? <button className='btn' onClick={onDelete}>Delete Section</button> : null}
@@ -36,5 +36,6 @@ Section.propTypes = {
   onChange: PropTypes.func.isRequired,
   type: PropTypes.number.isRequired,
   sectionKey: PropTypes.string.isRequired,
+  isActive: PropTypes.bool
 };
 export default Section;

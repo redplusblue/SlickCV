@@ -96,7 +96,6 @@ export function Preview({sections}) {
                 </div>
               </div>
             </div></>))}
-      <br />
     {/* Experience Section*/ }
     {sections[2].length >= 0 && <><div className="preview-detail-heading">Experience</div><hr /></>}
     {sections[2].map((element) => (

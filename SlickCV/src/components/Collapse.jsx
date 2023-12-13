@@ -2,8 +2,8 @@ import { useState, useEffect, useRef } from "react";
 import PropTypes from 'prop-types';
 import '../styles/collapse.css';
 
-const Collapse = ({ children, title, btn=true }) => {
-  const [isCollapsed, setIsCollapsed] = useState(true);
+const Collapse = ({ children, title, btn=true, isActive=true }) => {
+  const [isCollapsed, setIsCollapsed] = useState(isActive);
   const contentRef = useRef(null);
 
   useEffect(() => {
@@ -15,7 +15,7 @@ const Collapse = ({ children, title, btn=true }) => {
   }, [isCollapsed]);
 
   return (
-    <div className="form-section">
+    <div className={"form-section"}>
       <div className={"form-section-header-wrapper" + (btn ? "" : " alt-btn")} onClick={() => (setIsCollapsed(!isCollapsed))}>
       <h1>{title}</h1>
       {btn ? <button id="expand-btn" onClick={() => (setIsCollapsed(!isCollapsed))} className={isCollapsed ? "expand" : "collapse"}>
@@ -31,7 +31,8 @@ const Collapse = ({ children, title, btn=true }) => {
 Collapse.propTypes = { 
     children: PropTypes.node.isRequired,
     title: PropTypes.string.isRequired,
-    btn: PropTypes.bool
+    btn: PropTypes.bool,
+    isActive: PropTypes.bool
 };
 
 export default Collapse;

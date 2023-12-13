@@ -1,11 +1,27 @@
+:root {
+  --btn-color: #00bfa6;
+}
+
 .form-container {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+}
+
+.logo > img {
   width: 100%;
-  gap: 1rem;
-  margin: 1rem 0;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.btn-container {
+  margin: 10px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 .form-section-header-wrapper {
@@ -30,6 +46,7 @@
   max-width: 90%;
   padding: 1rem;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.4s ease-in-out;
 }
 
 .input-container {
@@ -81,10 +98,10 @@
   outline: 0;
   cursor: pointer;
   color: white;
-  background-color: black;
-  border: 2px solid white;
-  border-radius: 4px;
-  font-size: 14px;
+  background-color: var(--btn-color);
+  text-transform: uppercase;
+  border: 2px solid var(--btn-color);
+  font-size: 16px;
   font-weight: 500;
   padding: 4px 8px;
   display: inline-block;
@@ -92,10 +109,25 @@
   transition: all 0.4s ease-in-out;
 }
 
-.btn:hover {
-  color: black;
+.btn:hover,
+.btn.clicked {
+  color: var(--btn-color);
   background-color: white;
-  border: 2px solid black;
+  /* border: 2px dotted var(--btn-color); */
+  box-shadow: -4px -4px 0px var(--btn-color);
+}
+
+.btn.clicked {
+  box-shadow: -4px -4px 0px var(--btn-color), 4px 4px 0px var(--btn-color);
+}
+
+.btn.clicked:hover {
+  box-shadow: -4px -4px 2px var(--btn-color), 4px 4px 2px var(--btn-color);
+}
+
+.btn:active {
+  transform: scale(1.25);
+  transition: all 0.5s ease-in-out;
 }
 
 textarea {
@@ -105,6 +137,7 @@ textarea {
   border: 2px white solid;
   border-radius: 5px;
   background: transparent;
+  resize: vertical;
 }
 
 .input:focus {
@@ -140,4 +173,42 @@ select:hover {
   display: flex;
   flex-direction: column;
   gap: 10px;
+}
+
+.section-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 80%;
+  max-width: 90%;
+  align-items: center;
+}
+
+.inactive {
+  display: none;
+  /* opacity: 0.5; */
+}
+
+.active {
+  display: flex;
+}
+
+.help {
+  color: grey;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.help > h1 {
+  margin: 0;
+}
+
+.help > ul {
+  list-style: square;
+  padding: 0;
+  margin: 0;
+}
+
+.help > ul > li {
+  margin: 1rem;
 }

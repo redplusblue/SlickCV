@@ -160,7 +160,7 @@ export default function Forms({sections, setSections}) {
       }
       {/*Credits*/}
       {<p className="credits">SlickCV is a free resume builder that helps you create a professional resume in minutes. <br></br>
-      Made with ❤️ by <a href="https://github.com/redplusblue">redplusblue</a></p>}
+      Made with 💜 by <a href="https://github.com/redplusblue">redplusblue</a></p>}
     </>)
 }
 Forms.propTypes = {

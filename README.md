@@ -20,9 +20,9 @@
 
 ## **Click on the pictures/the link below to try!**
 
-<a href="https://redplusblue.github.io/SlickCV/"><img src="preview/Preview-Gameplay.png" alt="Live Use Preview GIF" title="Click Me!"></a>
-<a href="https://redplusblue.github.io/SlickCV/"><img src="preview/Preview-Instructions.png" alt="Layout Preview" title="Click Me!"></a>
-<a href="https://redplusblue.github.io/SlickCV/"><img src="preview/Preview-ShipRotate.png" alt="Print Preview" title="Click Me!"></a>
+<a href="https://redplusblue.github.io/SlickCV/"><img src="preview/live-use.png" alt="Live Use Preview GIF" title="Click Me!"></a>
+<a href="https://redplusblue.github.io/SlickCV/"><img src="preview/layout.png" alt="Layout Preview" title="Click Me!"></a>
+<a href="https://redplusblue.github.io/SlickCV/"><img src="preview/print.png" alt="Print Preview" title="Click Me!"></a>
 
 ## [Click to open](https://redplusblue.github.io/SlickCV/)
 

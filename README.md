@@ -40,6 +40,7 @@ I think it looks kinda neat too :D
 
 1. React: States, Hooks, hot reloading, react-dom, components, props, nested components, shared states, 
 2. Using JS with React to store constants, and run scripts to interact with the DOM.
+- An important lesson I learned about detailed planning before creating components, otherwise you waste more time re-creating things than it would've taken had you planned it out beforehand.
 
 ### What I did well (I think):
 
@@ -47,12 +48,12 @@ I think it looks kinda neat too :D
 2. Webpage is aligned and styled proportionately, with minimalism in mind. Most of the elements are symmetrical. Sudden changes in layout are reduced to a minimum and animations are used to smoothen the transition.
 3. User experience is smooth and intuitive, especially because of the real time changes.
 
-### What I could've done better (Working on it...):
+### Problems I encountered:
 
-1. The AI could be more intelligent, and could be more efficient.
-2. The game could have more graphical elements.
-3. The game could have a player vs player mode.
-4. Some of the commits were lost because not pushing to remote repository often enough, which resulted in a lot of changes being less organized than they could have been.
+1. Lots of redesign. TONS of it. At a point I had to re-create all components despite them somewhat working because there needed to be a shared state for the live preview functionality.
+2. A lot of the visual elements did not scale well as more components were added and had to be removed.
+3. Development process was kind of rocky for personal reasons, because of which there werent consistent contributions, which led to more redesigns which in hindsight, could've been avoided.
+4. Deployment was TERRIBLE. Github actions is absolutely horrible, I ran into an issue where I couldn't delete a workflow even after deleting the .yml file and it kept running to the point where I had to disable actions and migrate to a new repository, because, for some reason Github actions does not allow deleting workflows ://
 
 <br>
 

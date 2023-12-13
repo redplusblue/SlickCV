@@ -60,6 +60,7 @@ body {
   top: 14px;
   left: 14px;
   color: #bfa600;
+  border: 2px solid #bfa600;
   background-color: white;
   padding: 5px;
   box-shadow: -4px -4px 0px var(--btn-color), 4px 4px 0px var(--btn-color);

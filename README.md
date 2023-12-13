@@ -33,6 +33,7 @@
 3. No limit to number of sections or number of pages.
 4. Can add bullet points in Experience section.
 5. Can save the resume as PDF or print it directly.
+6. [ 🏗️ Under Construction ] Your progress is saved in real time as you edit the resume using localStorage. So if the tab closes or refreshes, it can just reload the information for you.
 
 I think it looks kinda neat too :D
 

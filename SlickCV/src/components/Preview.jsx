@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import '../styles/preview.css'
 // Returns preview - component 
 
+// Parses description string into list
 function DescParser({string}) {
   return (
     <>
@@ -21,12 +22,6 @@ DescParser.propTypes = {
 
 // Initial elements, and state variables
 export function Preview({sections}) {
-  // TODO: Check if this is needed
-  // useEffect(() => {
-  //   // This code will run every time sharedState changes
-  //   // Add any additional logic you need here
-  // }, [sections]);
-
   const about = sections[0][0];
   return (
     <>

@@ -36,6 +36,5 @@ Section.propTypes = {
   onChange: PropTypes.func.isRequired,
   type: PropTypes.number.isRequired,
   sectionKey: PropTypes.string.isRequired,
-  isActive: PropTypes.bool
 };
 export default Section;

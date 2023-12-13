@@ -14,7 +14,7 @@ body,
 }
 
 body {
-  background-color: rgba(0, 0, 0, 0.05);
+  background-color: rgba(0, 0, 0, 0.01);
 }
 
 @media print {
@@ -41,8 +41,8 @@ body {
 }
 
 .credits {
-  position: relative;
-  bottom: 0;
+  margin-top: auto;
+  padding: 10px;
   text-align: center;
   color: gray;
 }
@@ -53,4 +53,20 @@ body {
 
 .credits a:hover {
   color: black;
+}
+
+.saved {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  color: #bfa600;
+  background-color: white;
+  padding: 5px;
+  box-shadow: -4px -4px 0px var(--btn-color), 4px 4px 0px var(--btn-color);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.saved.show {
+  opacity: 1;
 }

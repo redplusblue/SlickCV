@@ -29,12 +29,6 @@
   transition: all 0.4s ease-in-out;
 }
 
-/* #expand-btn:hover {
-  cursor: pointer;
-  background-color: black;
-  border-radius: 10px;
-} */
-
 .expand {
   transform: rotate(0deg);
 }

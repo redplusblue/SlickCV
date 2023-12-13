@@ -1,12 +1,12 @@
 :root {
-  --btn-color: #00bfa6;
+  --btn-color: #bfa600;
 }
 
 .form-container {
-  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 100%;
 }
 
 .logo > img {

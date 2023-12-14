@@ -15,7 +15,7 @@ function getNewSections() {
 
 export default function Forms({sections, setSections}) {
   // Section Activity state
-  const [activity, setActivity] = useState([false, false, false, false])
+  const [activity, setActivity] = useState([true, false, false, false])
   // New Section Objects [Education, Experience]
   const newSection = getNewSections()
   function addSection(type) {
@@ -48,14 +48,13 @@ export default function Forms({sections, setSections}) {
       // Throw error
       return null;
     }
-    setSections((prevSections) => {
-      const updatedSections = [...prevSections];
-      const curSection = updatedSections[type].find((section) => section.key === sectionKey);
-      const curSectionIndex = updatedSections[type].indexOf(curSection);
-      // curSection.fields[fieldName] = e.target.value;
-      updatedSections[type][curSectionIndex].fields[fieldName] = e.target.value;
-      return [...updatedSections];
-    });
+
+    // Dont put a function in the setSections function, it will pass the arg into localStorage first 
+    const updatedSections = [...sections];
+    const curSection = updatedSections[type].find((section) => section.key === sectionKey);
+    const curSectionIndex = updatedSections[type].indexOf(curSection);
+    updatedSections[type][curSectionIndex].fields[fieldName] = e.target.value;
+    setSections(updatedSections);
   }
 
   function updateActivity(cur) {
@@ -76,7 +75,7 @@ export default function Forms({sections, setSections}) {
     <>
     <div className="logo"><img src={Logo}></img></div>
     <div className="btn-container">
-      <input className="btn" type="button" value="Help" onClick={() => {updateActivity(0)}}/>
+      <input className="btn clicked" type="button" value="Help" onClick={() => {updateActivity(0)}}/>
       <input className="btn" type="button" value="About" onClick={() => {updateActivity(1)}}/>
       <input className="btn" type="button" value="Education"  onClick={() => {updateActivity(2)}}/>
       <input className="btn" type="button" value="Experience" onClick={() =>{updateActivity(3)}}/>   
